@@ -43,14 +43,12 @@ export default {
       }
       return text;
     },
-    computed: {
-      formJson() {
-        return {
-          [this.property]: this.radio,
-          options: this.options,
-          component: 'Time',
-        };
-      },
+    formJson() {
+      return {
+        [this.property]: this.radio,
+        options: this.options,
+        component: 'Time',
+      };
     },
   },
 };

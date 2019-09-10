@@ -2,12 +2,12 @@
   <div>
     <el-radio-group v-model="radio" :disabled="isCreated">
       <el-radio v-for="item in options" :key="item.value" :label="item.value" style="display:block">
-        <el-input v-model="item.label" placeholder="请输入内容">
-          <el-button slot="append" icon="el-icon-close" @click="handleDelete(item.value)"></el-button>
+        <el-input v-model="item.label" :readonly="!isCreated"  placeholder="请输入内容">
+          <el-button v-if="isCreated" slot="append" icon="el-icon-close" @click="handleDelete(item.value)"></el-button>
         </el-input>
       </el-radio>
     </el-radio-group>
-    <div class="operate">
+    <div v-if="isCreated" class="operate">
       <el-button type="text" @click="handleAddOption">添加选项</el-button>
       <el-button v-if="!other" type="text" @click="handleAddOtherOption">添加"其他"项</el-button>
     </div>

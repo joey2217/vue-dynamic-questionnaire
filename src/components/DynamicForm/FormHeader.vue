@@ -1,11 +1,11 @@
 <template>
   <div class="form-header">
     <div class="title">
-      <input v-model="inputTitle" placeholder="请输入内容" />
+      <input v-model="inputTitle" :readonly="readonly" placeholder="标题" />
       <span></span>
     </div>
     <div class="sub-title">
-      <input v-model="inputSubTitle" placeholder="请输入内容" />
+      <input v-model="inputSubTitle" :readonly="readonly" placeholder="副标题" />
       <span></span>
     </div>
   </div>
@@ -15,19 +15,15 @@
 export default {
   name: 'FormHeader',
   props: {
-    title: {
-      type: String,
-      default: 'title',
-    },
-    subTitle: {
-      type: String,
-      default: 'subTitle',
+    readonly: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
     return {
-      inputTitle: '标题',
-      inputSubTitle: '副标题',
+      inputTitle: '',
+      inputSubTitle: '',
     };
   },
 };
@@ -50,7 +46,7 @@ export default {
     position: relative;
   }
   input {
-    width: 6.5em;
+    width: 100%;
     color: #000;
     font-size: inherit;
     font-family: inherit;
@@ -64,7 +60,7 @@ export default {
   }
 
   input::placeholder {
-    color: hsla(0, 0%, 100%, 0.6);
+    color: rgba($color: #000000, $alpha: 0.6)
   }
 
   span {

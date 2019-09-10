@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-input v-model="input" placeholder="待填写者输入" :disabled="isCreated"></el-input>
+    <el-input v-model="input" :placeholder="placeholder" :disabled="isCreated"></el-input>
   </div>
 </template>
 
@@ -23,6 +23,12 @@ export default {
     };
   },
   computed: {
+    placeholder() {
+      if (this.isCreated) {
+        return '待填写者输入';
+      }
+      return '请输入';
+    },
     formJson() {
       return {
         [this.property]: this.radio,

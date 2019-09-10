@@ -1,11 +1,16 @@
 <template>
   <div class="form-item">
     <div class="form-item-top">
-      <div class="title">
-        <input v-model="input" placeholder="请输入内容" />
+      <div class="index">{{index}}</div>
+      <div v-if="isCreated" class="title">
+        <input v-model="input"  type="textarea" placeholder="输入问题" />
         <span></span>
       </div>
-      <div class="select">
+      <div v-else class="title">
+        <input v-model="questionText" readonly type="textarea" placeholder="输入问题" />
+        <span></span>
+      </div>
+      <div v-if="isCreated" class="select">
         <el-select v-model="current" placeholder="请选择">
           <el-option-group v-for="group in options" :key="group.label" :label="group.label">
             <el-option
@@ -19,7 +24,8 @@
       </div>
     </div>
     <div class="form-item-content">
-      <component v-bind:is="current" :isCreated="isCreated" ref="component"></component>
+      <component v-if="isCreated" v-bind:is="current" :isCreated="isCreated" ref="component"></component>
+      <component v-else v-bind:is="component" ></component>
     </div>
     <div class="form-item-footer">
       <div class="slot">
@@ -45,6 +51,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    component: {
+      type: String,
+      default: 'SingleText',
+    },
+    questionText: {
+      type: String,
+      default: '',
+    },
+    index: {
+      type: [String, Number],
+      default: 0,
+    },
   },
   components: {
     SingleText,
@@ -57,7 +75,7 @@ export default {
   },
   data() {
     return {
-      current: '',
+      current: 'SingleText',
       input: '',
       options: [
         {
@@ -109,7 +127,7 @@ export default {
   methods: {
     formJson() {
       return {
-        input: this.input,
+        questionText: this.input,
         formJson: this.$refs.component.formJson,
       };
     },
@@ -124,11 +142,19 @@ export default {
   &-top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
+    .index{
+      color: #0188fb;
+      font-size: 26px;
+      font-weight: 550;
+      padding: 0 10px;
+    }
     .title {
       position: relative;
+      flex-grow: 1;
       input {
-        width: 6.5em;
+        width: 100%;
         height: 36px;
         color: #000;
         font-size: inherit;
@@ -143,7 +169,7 @@ export default {
       }
 
       input::placeholder {
-        color: hsla(0, 0%, 100%, 0.6);
+        color: rgba($color: #000000, $alpha: 0.7)
       }
 
       span {
@@ -162,6 +188,9 @@ export default {
         transform-origin: bottom left;
         transform: scaleX(1);
       }
+    }
+    .select{
+      padding-left: 20px;
     }
   }
   &-content {
