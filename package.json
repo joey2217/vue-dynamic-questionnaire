@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "element-ui": "^2.12.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -33,7 +34,10 @@
       "plugin:vue/essential",
       "@vue/airbnb"
     ],
-    "rules": {},
+    "rules": {
+      "max-len": ["error", { "code": 150 }],
+      "array-callback-return": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
