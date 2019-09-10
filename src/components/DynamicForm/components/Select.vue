@@ -1,15 +1,20 @@
 <template>
   <div>
-    <el-input
-      v-for="(item,index) in options"
-      :key="item.value"
-      v-model="item.label"
-      placeholder="请输入内容"
-    >
-      <template slot="prepend">{{index+1}}</template>
-      <el-button slot="append" icon="el-icon-close" @click="handleDelete(item.value)"></el-button>
-    </el-input>
-    <div class="operate">
+    <template v-if="isCreated">
+      <el-input
+        v-for="(item,index) in options"
+        :key="item.value"
+        v-model="item.label"
+        placeholder="请输入内容"
+      >
+        <template slot="prepend">{{index+1}}</template>
+        <el-button slot="append" icon="el-icon-close" @click="handleDelete(item.value)"></el-button>
+      </el-input>
+    </template>
+    <el-select v-else v-model="select" placeholder="请选择" class="select">
+      <el-option v-for="item in option" :key="item.value" :label="item.label" :value="item.label"></el-option>
+    </el-select>
+    <div v-if="isCreated"  class="operate">
       <el-button type="text" @click="handleAddOption">添加选项</el-button>
     </div>
   </div>
@@ -27,11 +32,14 @@ export default {
       type: String,
       default: 'select',
     },
+    option: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
       select: '',
-      radio: null,
       options: [
         {
           value: 1,
@@ -72,4 +80,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.select{
+  padding-left: 20px;
+}
 </style>

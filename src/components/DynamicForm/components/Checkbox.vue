@@ -7,12 +7,16 @@
         :label="item.label"
         style="display:block"
       >
-        <el-input v-model="item.label" placeholder="请输入内容">
+        <el-input v-if="isCreated" v-model="item.label" placeholder="请输入内容">
           <el-button slot="append" icon="el-icon-close" @click="handleDelete(item.value)"></el-button>
         </el-input>
+        <span v-else>
+          <el-input v-if="item.value==='other'" v-model="item.label"  placeholder="请输入内容"/>
+          <span v-else >{{item.label}}</span>
+        </span>
       </el-checkbox>
     </el-checkbox-group>
-    <div class="operate">
+    <div  v-if="isCreated" class="operate">
       <el-button type="text" @click="handleAddOption">添加选项</el-button>
       <el-button v-if="!other" type="text" @click="handleAddOtherOption">添加"其他"项</el-button>
     </div>
@@ -30,6 +34,10 @@ export default {
     property: {
       type: String,
       default: 'checkList',
+    },
+    option: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {
@@ -51,6 +59,15 @@ export default {
         options: this.options,
         component: 'Checkbox',
       };
+    },
+  },
+  watch: {
+    option: {
+      handler(val) {
+        console.log(val);
+        this.options = [...val];
+      },
+      deep: true,
     },
   },
   methods: {
@@ -77,6 +94,11 @@ export default {
       });
       this.other = true;
     },
+  },
+  mounted() {
+    if (this.option.length > 0) {
+      this.options = [...this.option];
+    }
   },
 };
 </script>

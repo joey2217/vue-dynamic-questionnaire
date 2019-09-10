@@ -7,6 +7,7 @@
       :key="index"
       :index="index+1"
       :component="item.formJson.component"
+      :options="item.formJson.options"
       :questionText="item.questionText"
     >
     </FormItem>

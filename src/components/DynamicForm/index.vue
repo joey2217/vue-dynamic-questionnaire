@@ -68,7 +68,7 @@ export default {
           data.formConfig.push({ ...this.$refs[`formItem${index}`][0].formJson() });
         });
       }
-      console.log(data);
+      // console.log(data);
       this.formData = data;
     },
     showFormJson() {

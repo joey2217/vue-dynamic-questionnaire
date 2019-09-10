@@ -12,7 +12,7 @@
       </div>
       <div v-if="isCreated" class="select">
         <el-select v-model="current" placeholder="请选择">
-          <el-option-group v-for="group in options" :key="group.label" :label="group.label">
+          <el-option-group v-for="group in groupOptions" :key="group.label" :label="group.label">
             <el-option
               v-for="item in group.options"
               :key="item.value"
@@ -25,7 +25,7 @@
     </div>
     <div class="form-item-content">
       <component v-if="isCreated" v-bind:is="current" :isCreated="isCreated" ref="component"></component>
-      <component v-else v-bind:is="component" ></component>
+      <component v-else v-bind:is="component" :option="options"></component>
     </div>
     <div class="form-item-footer">
       <div class="slot">
@@ -55,6 +55,10 @@ export default {
       type: String,
       default: 'SingleText',
     },
+    options: {
+      type: Array,
+      default: () => [],
+    },
     questionText: {
       type: String,
       default: '',
@@ -77,7 +81,7 @@ export default {
     return {
       current: 'SingleText',
       input: '',
-      options: [
+      groupOptions: [
         {
           label: '文本',
           options: [

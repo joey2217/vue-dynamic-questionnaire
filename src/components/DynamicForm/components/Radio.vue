@@ -1,10 +1,14 @@
 <template>
   <div>
     <el-radio-group v-model="radio" :disabled="isCreated">
-      <el-radio v-for="item in options" :key="item.value" :label="item.value" style="display:block">
-        <el-input v-model="item.label" :readonly="!isCreated"  placeholder="请输入内容">
-          <el-button v-if="isCreated" slot="append" icon="el-icon-close" @click="handleDelete(item.value)"></el-button>
+      <el-radio v-for="item in options" :key="item.value" :label="item.label" style="display:block">
+        <el-input v-if="isCreated" v-model="item.label" :readonly="!isCreated"  placeholder="请输入内容">
+          <el-button slot="append" icon="el-icon-close" @click="handleDelete(item.value)"></el-button>
         </el-input>
+        <span v-else>
+          <el-input v-if="item.value==='other'" v-model="item.label"  placeholder="请输入内容"/>
+          <span v-else >{{item.label}}</span>
+        </span>
       </el-radio>
     </el-radio-group>
     <div v-if="isCreated" class="operate">
@@ -24,7 +28,11 @@ export default {
     },
     property: {
       type: String,
-      default: 'input',
+      default: 'radio',
+    },
+    option: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {
@@ -39,6 +47,15 @@ export default {
       index: 2,
       other: false,
     };
+  },
+  watch: {
+    option: {
+      handler(val) {
+        console.log(val);
+        this.options = [...val];
+      },
+      deep: true,
+    },
   },
   computed: {
     formJson() {
@@ -73,6 +90,11 @@ export default {
       });
       this.other = true;
     },
+  },
+  mounted() {
+    if (this.option.length > 0) {
+      this.options = [...this.option];
+    }
   },
 };
 </script>

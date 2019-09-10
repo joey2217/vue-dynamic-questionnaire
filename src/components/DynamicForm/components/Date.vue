@@ -1,9 +1,19 @@
 <template>
   <div>
+    <template v-if="isCreated">
     <el-select v-model="value" placeholder="请选择">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
     </el-select>
     <span>{{label}}</span>
+    </template>
+    <el-date-picker
+      v-else
+      v-model="value2"
+      type="date"
+      placeholder="选择日期"
+      format="yyyy 年 MM 月 dd 日"
+      value-format="yyyy-MM-dd">
+    </el-date-picker>
   </div>
 </template>
 
@@ -24,6 +34,7 @@ export default {
   data() {
     return {
       value: 'yyyy-MM-dd',
+      date: '',
       options: [
         {
           value: 'yyyy-MM-dd',
@@ -53,7 +64,8 @@ export default {
     },
     formJson() {
       return {
-        [this.property]: this.value,
+        [this.property]: this.date,
+        value: this.value,
         options: this.options,
         component: 'Date',
       };
