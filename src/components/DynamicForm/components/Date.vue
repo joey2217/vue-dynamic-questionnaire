@@ -55,6 +55,7 @@ export default {
       return {
         [this.property]: this.value,
         options: this.options,
+        component: 'Date',
       };
     },
   },

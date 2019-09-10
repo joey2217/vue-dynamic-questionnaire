@@ -33,6 +33,7 @@ export default {
       return {
         [this.property]: this.textarea,
         options: this.options,
+        component: 'MultiText',
       };
     },
   },

@@ -49,6 +49,7 @@ export default {
       return {
         [this.property]: this.checkList,
         options: this.options,
+        component: 'Checkbox',
       };
     },
   },

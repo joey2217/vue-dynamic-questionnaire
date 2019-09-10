@@ -45,6 +45,7 @@ export default {
       return {
         [this.property]: this.radio,
         options: this.options,
+        component: 'Radio',
       };
     },
   },

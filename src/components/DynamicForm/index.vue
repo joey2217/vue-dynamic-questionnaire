@@ -79,6 +79,7 @@ export default {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.06);
   background-color: #fff;
   min-width: 500px;
+  padding: 20px;
   .opeate {
     display: flex;
     justify-content: flex-end;
