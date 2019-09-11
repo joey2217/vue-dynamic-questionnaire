@@ -1,16 +1,30 @@
 {
-  "name": "vue-dynamic-form",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-dynamic-questionnaire",
+  "version": "0.1.1",
+  "license": "MIT",
+  "main": "/dist/vue-dynamic-form.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BurNing1993/vue-dynamic-questionnaire"
+  },
+  "keywords": [
+    "vue-dynamic-questionnaire","vue","vue-dynamic-form"
+  ],
+  "author": "Joey",
+  "bugs": {
+    "url": "https://github.com/BurNing1993/vue-dynamic-questionnaire/issues"
+  },
+  "homepage": "https://github.com/vuejs/vue#readme",
   "dependencies": {
     "core-js": "^2.6.5",
     "element-ui": "^2.12.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-dynamic-questionnaire": "^0.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
@@ -35,7 +49,12 @@
       "@vue/airbnb"
     ],
     "rules": {
-      "max-len": ["error", { "code": 150 }],
+      "max-len": [
+        "error",
+        {
+          "code": 150
+        }
+      ],
       "array-callback-return": "off"
     },
     "parserOptions": {

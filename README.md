@@ -1,29 +1,10 @@
-# vue-dynamic-form
+# vue-dynamic-questionnaire
 
-## Project setup
-```
-yarn install
-```
+## Usage
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+    npm install -S vue-dynamic-questionnaire 
+    or 
+    yarn add vue-dynamic-questionnaire
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+    import 'vue-dynamic-questionnaire/dist/vue-dynamic-form.css';
+    import { DynamicForm, GenerateForm } from 'vue-dynamic-questionnaire';

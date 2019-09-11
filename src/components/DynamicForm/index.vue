@@ -20,7 +20,7 @@
     </el-dialog>
     <el-dialog title="预览" :visible.sync="previewVisible" width="700px" top="5vh">
       <div>
-        <generate-form :formData="formData" @confirm="handleConfirm"/>
+        <generate-form :formData="formData"/>
       </div>
     </el-dialog>
   </div>
@@ -78,9 +78,6 @@ export default {
     preview() {
       this.getFormJson();
       this.previewVisible = true;
-    },
-    handleConfirm(data) {
-      console.log(data);
     },
   },
 };
