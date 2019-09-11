@@ -52,7 +52,7 @@ export default {
   computed: {
     formJson() {
       return {
-        [this.property]: this.radio,
+        [this.property]: this.select,
         options: this.options,
         component: 'Select',
       };

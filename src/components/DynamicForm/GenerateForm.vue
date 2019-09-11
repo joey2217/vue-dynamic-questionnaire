@@ -9,7 +9,7 @@
       :component="item.formJson.component"
       :options="item.formJson.options"
       :questionText="item.questionText"
-      :format="item.formJson.value"
+      :format="item.formJson.format"
     ></FormItem>
     <div class="slot">
       <el-button type="primary" @click="submit">确定</el-button>

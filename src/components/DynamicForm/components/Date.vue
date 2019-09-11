@@ -69,7 +69,7 @@ export default {
     formJson() {
       return {
         [this.property]: this.date,
-        value: this.value,
+        format: this.value,
         options: this.options,
         component: 'Date',
       };
