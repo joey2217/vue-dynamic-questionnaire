@@ -14,7 +14,7 @@ export default {
     },
     property: {
       type: String,
-      default: 'input',
+      default: 'value',
     },
   },
   data() {
@@ -31,8 +31,7 @@ export default {
     },
     formJson() {
       return {
-        [this.property]: this.radio,
-        options: this.options,
+        [this.property]: this.input,
         component: 'SingleText',
       };
     },

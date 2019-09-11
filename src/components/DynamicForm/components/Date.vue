@@ -6,14 +6,14 @@
     </el-select>
     <span>{{label}}</span>
     </template>
-    <el-date-picker
-      v-else
-      v-model="value2"
-      type="date"
+    <div  v-else class="component">
+      <el-date-picker
+      v-model="date"
+      :type="format"
       placeholder="选择日期"
-      format="yyyy 年 MM 月 dd 日"
-      value-format="yyyy-MM-dd">
+      >
     </el-date-picker>
+    </div>
   </div>
 </template>
 
@@ -28,26 +28,30 @@ export default {
     },
     property: {
       type: String,
-      default: 'input',
+      default: 'value',
+    },
+    format: {
+      type: String,
+      default: 'date',
     },
   },
   data() {
     return {
-      value: 'yyyy-MM-dd',
+      value: 'date',
       date: '',
       options: [
         {
-          value: 'yyyy-MM-dd',
+          value: 'date',
           label: '年-月-日',
         },
         {
-          value: 'yyyy-MM',
+          value: 'month',
           label: '年-月',
         },
-        {
-          value: 'yyyy-MM-dd HH:mm',
-          label: '年-月-日 时:分',
-        },
+        // {
+        //   value: 'yyyy-MM-dd HH:mm',
+        //   label: '年-月-日 时:分',
+        // },
       ],
     };
   },
@@ -75,4 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.component{
+  padding-left: 20px;
+}
 </style>

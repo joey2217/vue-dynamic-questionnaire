@@ -1,9 +1,19 @@
 <template>
   <div>
-    <el-select v-model="value" placeholder="请选择">
-      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-    </el-select>
-    <span>{{label}}</span>
+    <template v-if="isCreated">
+      <el-select v-model="value" placeholder="请选择">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
+      </el-select>
+      <span>{{label}}</span>
+    </template>
+    <div  v-else class="component">
+      <el-time-picker v-model="date" placeholder="任意时间点"></el-time-picker>
+    </div>
   </div>
 </template>
 
@@ -18,12 +28,13 @@ export default {
     },
     property: {
       type: String,
-      default: 'input',
+      default: 'value',
     },
   },
   data() {
     return {
       value: 'time',
+      date: '',
       options: [
         {
           value: 'time',
@@ -45,7 +56,7 @@ export default {
     },
     formJson() {
       return {
-        [this.property]: this.radio,
+        [this.property]: this.date,
         options: this.options,
         component: 'Time',
       };
@@ -55,4 +66,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.component{
+  padding-left: 20px;
+}
 </style>

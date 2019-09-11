@@ -3,7 +3,7 @@
     <div class="form-item-top">
       <div class="index">{{index}}</div>
       <div v-if="isCreated" class="title">
-        <input v-model="input"  type="textarea" placeholder="输入问题" />
+        <input v-model="input" type="textarea" placeholder="输入问题" />
         <span></span>
       </div>
       <div v-else class="title">
@@ -25,7 +25,7 @@
     </div>
     <div class="form-item-content">
       <component v-if="isCreated" v-bind:is="current" :isCreated="isCreated" ref="component"></component>
-      <component v-else v-bind:is="component" :option="options"></component>
+      <component v-else v-bind:is="component" :option="options" :format="format" ref="component"></component>
     </div>
     <div class="form-item-footer">
       <div class="slot">
@@ -66,6 +66,10 @@ export default {
     index: {
       type: [String, Number],
       default: 0,
+    },
+    format: {
+      type: String,
+      default: 'yyyy-MM-dd',
     },
   },
   components: {
@@ -131,7 +135,7 @@ export default {
   methods: {
     formJson() {
       return {
-        questionText: this.input,
+        questionText: this.isCreated ? this.input : this.questionText,
         formJson: this.$refs.component.formJson,
       };
     },
@@ -148,7 +152,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    .index{
+    .index {
       color: #0188fb;
       font-size: 26px;
       font-weight: 550;
@@ -173,7 +177,7 @@ export default {
       }
 
       input::placeholder {
-        color: rgba($color: #000000, $alpha: 0.7)
+        color: rgba($color: #000000, $alpha: 0.7);
       }
 
       span {
@@ -193,7 +197,7 @@ export default {
         transform: scaleX(1);
       }
     }
-    .select{
+    .select {
       padding-left: 20px;
     }
   }

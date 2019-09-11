@@ -20,7 +20,7 @@ export default {
     },
     property: {
       type: String,
-      default: 'textarea',
+      default: 'value',
     },
   },
   data() {
@@ -38,7 +38,6 @@ export default {
     formJson() {
       return {
         [this.property]: this.textarea,
-        options: this.options,
         component: 'MultiText',
       };
     },

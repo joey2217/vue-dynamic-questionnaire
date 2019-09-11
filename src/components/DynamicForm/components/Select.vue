@@ -30,7 +30,7 @@ export default {
     },
     property: {
       type: String,
-      default: 'select',
+      default: 'value',
     },
     option: {
       type: Array,

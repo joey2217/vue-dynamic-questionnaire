@@ -33,7 +33,7 @@ export default {
     },
     property: {
       type: String,
-      default: 'checkList',
+      default: 'value',
     },
     option: {
       type: Array,
@@ -64,7 +64,6 @@ export default {
   watch: {
     option: {
       handler(val) {
-        console.log(val);
         this.options = [...val];
       },
       deep: true,
