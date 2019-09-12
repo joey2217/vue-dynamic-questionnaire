@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/BurNing1993/vue-dynamic-questionnaire/issues"
   },
-  "homepage": "https://github.com/vuejs/vue#readme",
+  "homepage": "https://github.com/vue-dynamic-questionnaire",
   "dependencies": {
     "core-js": "^2.6.5",
     "element-ui": "^2.12.0",
