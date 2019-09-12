@@ -13,7 +13,9 @@
     "url": "https://github.com/BurNing1993/vue-dynamic-questionnaire"
   },
   "keywords": [
-    "vue-dynamic-questionnaire","vue","vue-dynamic-form"
+    "vue-dynamic-questionnaire",
+    "vue",
+    "vue-dynamic-form"
   ],
   "author": "Joey",
   "bugs": {

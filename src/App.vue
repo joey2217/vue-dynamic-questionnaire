@@ -17,9 +17,9 @@ export default {
 
 <style lang="scss">
 #app{
-  margin: 20px;
+  margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
-  min-width: 840px;
+  width: 840px;
 }
 </style>
