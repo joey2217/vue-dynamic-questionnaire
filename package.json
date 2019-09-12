@@ -3,14 +3,11 @@
   "version": "0.1.1",
   "license": "MIT",
   "main": "/dist/vue-dynamic-form.common.js",
+  "homepage": "https://burning1993.github.io/vue-dynamic-questionnaire/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BurNing1993/vue-dynamic-questionnaire"
   },
   "keywords": [
     "vue-dynamic-questionnaire",
@@ -18,10 +15,6 @@
     "vue-dynamic-form"
   ],
   "author": "Joey",
-  "bugs": {
-    "url": "https://github.com/BurNing1993/vue-dynamic-questionnaire/issues"
-  },
-  "homepage": "https://burning1993.github.io/vue-dynamic-questionnaire/",
   "dependencies": {
     "core-js": "^2.6.5",
     "element-ui": "^2.12.0",
